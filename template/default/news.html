@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+<meta charset="UTF-8">
+<title>{content:title}-{pboot:sitetitle}</title>
+<meta name="keywords" content="{content:keywords}">
+<meta name="description" content="{content:description}">
+<meta name="renderer" content="webkit">
+<meta name="format-detection" content="telephone=no" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+<link rel="stylesheet" href="{pboot:sitedomain}/skin/css/bootstrap.css" />
+<link rel="stylesheet" href="{pboot:sitedomain}/skin/css/menu.css">
+<link rel="stylesheet" href="{pboot:sitedomain}/skin/css/style.css" />
+<link rel="stylesheet" href="{pboot:sitedomain}/skin/css/less.css" />
+<link rel="stylesheet" href="{pboot:sitedomain}/skin/css/lightbox.css" />
+<link rel="stylesheet" href="{pboot:sitedomain}/skin/css/bxslider.css" />
+<link rel="stylesheet" href="{pboot:sitedomain}/skin/css/pages.css" />
+<!--[if lte IE 8]>
+	<link rel="stylesheet" href="{pboot:sitedomain}/skin/css/ie78.css">
+<![endif]-->
+<script type="text/javascript" src="{pboot:sitedomain}/skin/js/jquery.js"></script>
+<script type="text/javascript" src="{pboot:sitedomain}/skin/js/jquery.mmenu.min.js"></script>
+<script type="text/javascript" src="{pboot:sitedomain}/skin/js/lib.js"></script>
+<!-- animate Js -->
+<script type="text/javascript" src="{pboot:sitedomain}/skin/js/wow.js"></script>
+<script type="text/javascript" src="{pboot:sitedomain}/skin/js/animate.js"></script>
+<script src="{pboot:sitedomain}/skin/js/bxslider.min.js"></script>
+<script src="{pboot:sitedomain}/skin/js/lightbox.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('.showpic_flash').bxSlider({
+		  pagerCustom: '#pic-page',
+		   adaptiveHeight: true,
+		});
+
+	});
+</script>
+</head>
+<body oncontextmenu="return false" ondragstart="return false">
+<div class="wrapper">
+  {include file=head.html}
+  {pboot:sort scode={sort:tcode}}
+  <div id="ban" style="background-image: url([sort:pic]);">
+    <div class="ban_txt">
+      <div class="wp text__align--center">
+        <h2>[sort:subname]</h2>
+        <h4 class="animate" style="margin-top: 20px">[sort:def1]</h4>
+      </div>
+    </div>
+  </div>
+  {/pboot:sort}
+  <div id="snav">
+    <div class="wp"> <span class="subMenuBtn"><em class="s1"></em><em class="s2"></em><em class="s3"></em></span>
+      <ul>
+        {pboot:nav parent={sort:tcode}}
+		<li {pboot:if('[nav:scode]'=='{sort:scode}')}class="active"{/pboot:if}><a href="[nav:link]"  class='s1'>[nav:name]</a></li>
+        {/pboot:nav}
+      </ul>
+    </div>
+  </div>
+  <div id="main">
+    <div class="wp">
+      <div id="main">
+        <div class="wp-middle">
+          <div class="h20"></div>
+          <div class="article" style='background:#FAFAFA;padding:20px;'>
+            <div class="header">
+              <h1>{content:title}</h1>
+              <p class="date">发布时间：{content:date}   作者：{content:author}   浏览量：{content:visits}</p>
+            </div>
+            <div class="cont" id="maximg">
+              {content:content}
+            </div>
+            <div class="footer"> <a href="javascript:history.back(-1)" class="back">返回</a>
+              <div class="prev">上一篇：{content:precontent}</div>
+              <div class="next">下一篇：{content:nextcontent}</div>
+            </div>
+          </div>
+          <div class="h60"></div>
+          <p class="tit-1 index-row">相关产品/解决方案</p>
+          <section class="productSolution">
+            {pboot:nav scode=14}
+            {pboot:2nav parent=[nav:scode] num=3}
+            <div>
+              <div>[2nav:def2]</div>
+              <div class="twoLines">[2nav:description]</div>
+              <a href="[2nav:link]" class="productSolution__a">
+                查看详情
+                <img src="{pboot:sitedomain}/skin/images/jiantouImg.png" alt="">
+              </a>
+            </div>
+            {/pboot:2nav}
+            {/pboot:nav}
+          </section>
+
+            <!-- [2nav:name] <br>
+            [2nav:description] <br>
+            [2nav:def1]<br>
+
+            [2nav:def2]<br> -->
+          <!-- <li class="item"> 
+            <a target="_blank" href="[2nav:link]" class="con">
+              <div class="icon icon-front"> <img src="{pboot:sitedomain}/skin/images/s[2nav:i].png" alt="[2nav:name]"> </div>
+              <h4 class="animate"></h4>
+              <p class="det animate"> </p>
+              <div class="icon icon-back" style="color: #fff;line-height: 30px;height: 270px;">
+                <div style="font-size: 35px; font-weight: 600;"></div>
+                <br />
+                <div style="font-size: 18px;"></div>
+                <br />
+                <div class="viewDetails">
+                  查看详情
+                  <img src="{pboot:sitedomain}/skin/images/jiantou.png" alt="">
+                </div>
+              </div>
+            </a> 
+          </li> -->
+          
+          <!-- <section class="productSolution">
+            <div>
+              <div>故障停机率降低了30%</div>
+              <div>通过机至平台，能够实时了解工单状态，沉淀工单数据，故障停机率降低了30%。</div>
+              <div>
+                查看详情
+                <img src="{pboot:sitedomain}/skin/images/jiantouImg.png" alt="">
+              </div>
+            </div>
+            <div>
+              <div>故障停机率降低了30%</div>
+              <div>通过机至平台，能够实时了解工单状态，沉淀工单数据，故障停机率降低了30%。</div>
+              <div>
+                查看详情
+                <img src="{pboot:sitedomain}/skin/images/jiantouImg.png" alt="">
+              </div>
+            </div>
+            <div>
+              <div>故障停机率降低了30%</div>
+              <div>通过机至平台，能够实时了解工单状态，沉淀工单数据，故障停机率降低了30%。</div>
+              <div>
+                查看详情
+                <img src="{pboot:sitedomain}/skin/images/jiantouImg.png" alt="">
+              </div>
+            </div>
+          </section> -->
+          <div class="h60"></div>
+        </div>
+      </div>
+      <div class="h50"></div>
+    </div>
+  </div>
+  {include file=foot.html}
+  {include file=fixedConnection.html}
+</div>
+</body>
+</html>

@@ -1,0 +1,275 @@
+<!--
+ * @Descripttion: 只能硬件
+ * @Author: ytx
+ * @Date: 2023-08-08 15:27:02
+ * @Last Modified by: ytx
+ * @Last Modified time: 2023-08-08 15:27:02
+-->
+<style>
+  .hardware__img {
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 60px;
+  }
+  .hardware__img img {
+    width: 50%;
+  }
+  .hardware__content {
+    background: #fafafa;
+    padding: 80px 0 40px;
+  }
+  .hardware__content--dec {
+    flex-direction: column;
+  }
+  .hardware__content--box {
+    display: flex;
+  }
+  .hardware__content--box > div:not(:last-child) {
+    margin-right: 20px;
+  }
+  .hardware__content--box > div {
+    flex: 1;
+    background: #ffffff;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.08);
+    border-radius: 12px;
+    border: 1px solid #ebebeb;
+    position: relative;
+    padding: 20px;
+  }
+  .hardware__content--box > div > div:nth-child(1) {
+    font-size: 16px;
+    color: #222222;
+    margin-top: 40px;
+  }
+  .hardware__content--box > div > div:nth-child(2) {
+    font-size: 12px;
+    color: #666666;
+    margin-top: 20px;
+  }
+  .hardware__content--box > div > div:nth-child(3) {
+    position: absolute;
+    top: -40px;
+    left: 20px;
+    width: 80px;
+    height: 80px;
+    background: #ffffff;
+    box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .hardware__content--box > div > div:nth-child(3) > img {
+    height: 45px !important;
+  }
+  .hardware__content--evolve {
+    margin: 79px 20px 50px;
+    display: flex;
+  }
+  .hardware__content--evolveRound {
+    text-align: center;
+  }
+  .hardware__content--evolveRound > img {
+    width: 60px;
+    height: 60px;
+  }
+  .hardware__content--evolveLine {
+    flex: 1;
+    position: relative;
+  }
+  .hardware__content--evolveLine > div:nth-child(1) {
+    width: 90%;
+    height: 1px;
+    border: 1px dashed #cc3534;
+    position: absolute;
+    top: 30px;
+  }
+  .hardware__content--evolveLine > div:nth-child(2) {
+    position: absolute;
+    top: 15px;
+    left: 45%;
+    transform: translateX(-42px);
+    padding: 1px 14px;
+    background: #cc3534;
+    border-radius: 12px;
+    font-size: 14px;
+    color: #ffffff;
+  }
+  .hardware__content--evolveLine > div:nth-child(3) {
+    width: 0;
+    height: 0;
+    border: 5px solid transparent;
+    border-left: 10px solid #cc3534;
+    position: absolute;
+    right: calc(10% - 10px);
+    top: 26px;
+  }
+  .solution__growth > section {
+    width: 25%;
+    padding: 2% 5%;
+  }
+  .solution__growth > section > p {
+    line-height: 18px;
+  }
+</style>
+<p class="tit-1">硬件技术</p>
+<section class="hardware__img">
+  <img src="{pboot:sitedomain}/skin/images/disposition/hardwareImg.png" />
+</section>
+<section class="hardware__content">
+  <div class="header__wp hardware__content--dec">
+    <div class="hardware__content--box">
+      <div>
+        <div class="animate">工业级数采单元</div>
+        <div class="animate">
+          1、振动分析和模态匹配：精确定位故障部位、类型、程度；
+          2、24V电源供电方案； 3、支持黑匣子功能，断网存储功能；
+          4、现场可与DCS/PLC等控制设备连接；
+          5、通讯传输方案多样化，适合不同工业现场情况；
+          6、IP68防护等级，本安级防爆认证； 7、强大的边缘计算和处理能力。
+        </div>
+        <div>
+          <img src="{pboot:sitedomain}/skin/images/disposition/hardware1.png" />
+        </div>
+      </div>
+      <div>
+        <div class="animate">防爆型/智能型 网关</div>
+        <div class="animate">
+          1、Zigbee与LoRA双感知无线技术； 2、网关配置手机APP直接通讯；
+          3、并与传感器进行波形采集； 4、4G通讯：支持4G全网通技术；
+          5、以太网通讯：支持千兆以内以太网技术；
+          6、wifi通讯：支持2.4/5.8双频段； 7、IP68防护等级，本安级防爆认证。
+        </div>
+        <div>
+          <img src="{pboot:sitedomain}/skin/images/disposition/hardware2.png" />
+        </div>
+      </div>
+      <div>
+        <div class="animate">智能传感器</div>
+        <div class="animate">
+          应用于电机、风机、轴承、发电机、燃气机、空压机、大型水力发电机等设备上，对其振动状态和温度情况进行实时监测、实时故障预警。
+          1、温度输出灵敏度10mV/℃；2、高性能低成本；3、标准3针插头；4、振温一体加速度传感器。
+        </div>
+        <div>
+          <img
+            src="{pboot:sitedomain}/skin/images/disposition/hardware3.png"
+            sizes="height: 55px !important;"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="hardware__content--evolve">
+      <div class="hardware__content--evolveRound">
+        <img src="{pboot:sitedomain}/skin/images/disposition/hardware4.png" />
+        <div class="animate">设备</div>
+      </div>
+      <!-- 箭头 -->
+      <div class="hardware__content--evolveLine">
+        <div></div>
+        <div>状态感知</div>
+        <div></div>
+      </div>
+      <div class="hardware__content--evolveRound">
+        <img src="{pboot:sitedomain}/skin/images/disposition/hardware5.png" />
+        <div class="animate">传感器</div>
+      </div>
+      <!-- 箭头 -->
+      <div class="hardware__content--evolveLine">
+        <div></div>
+        <div>数据传输</div>
+        <div></div>
+      </div>
+      <div class="hardware__content--evolveRound">
+        <img src="{pboot:sitedomain}/skin/images/disposition/hardware6.png" />
+        <div class="animate">采集器</div>
+      </div>
+      <!-- 箭头 -->
+      <div class="hardware__content--evolveLine">
+        <div></div>
+        <div>数据分析</div>
+        <div></div>
+      </div>
+      <div class="hardware__content--evolveRound">
+        <img src="{pboot:sitedomain}/skin/images/disposition/hardware7.png" />
+        <div class="animate">可视化</div>
+      </div>
+      <!-- 箭头 -->
+      <div class="hardware__content--evolveLine">
+        <div></div>
+        <div>输出报告</div>
+        <div></div>
+      </div>
+      <div class="hardware__content--evolveRound">
+        <img src="{pboot:sitedomain}/skin/images/disposition/hardware8.png" />
+        <div class="animate">诊断报告</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 智能硬件特点 -->
+<p class="tit-1 index-row">智能硬件特点</p>
+<p class="h60"></p>
+<section
+  class="header__wp solution__growth"
+  style="
+    background: #fafafa;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+  "
+>
+  <section>
+    <img
+      src="{pboot:sitedomain}/skin/images/disposition/value13.png"
+      alt=""
+      class="solution__growth--img"
+    />
+    <p class="animate" style="font-size: 18px; color: #333333; margin: 10px 0">
+      无线传输
+    </p>
+    <p class="animate">
+      有效满足了广覆盖、低功耗.大连接、低成本的应用需求,具有优秀的抗干扰能力。
+    </p>
+  </section>
+  <section class="solution__growth--hover">
+    <img
+      src="{pboot:sitedomain}/skin/images/disposition/value14.png"
+      alt=""
+      class="solution__growth--img"
+    />
+    <p class="animate" style="font-size: 18px; color: #333333; margin: 10px 0">
+      边缘计算
+    </p>
+    <p class="animate">
+      实现动态实时刷新波形和短期趋势图，有效减轻网络带宽压力。
+    </p>
+  </section>
+  <section>
+    <img
+      src="{pboot:sitedomain}/skin/images/disposition/value15.png"
+      alt=""
+      class="solution__growth--img"
+    />
+    <p class="animate" style="font-size: 18px; color: #333333; margin: 10px 0">
+      便捷安全
+    </p>
+    <p class="animate">
+      提供满足不同工业场景、本安级防爆认证的，多种传感器及网关产品。
+    </p>
+  </section>
+  <section>
+    <img
+      src="{pboot:sitedomain}/skin/images/disposition/value16.png"
+      alt=""
+      class="solution__growth--img"
+    />
+    <p class="animate" style="font-size: 18px; color: #333333; margin: 10px 0">
+      扩展性强
+    </p>
+    <p class="animate">
+      系统具有较大的可扩展性，可采集振动、温度、转速、润滑分析数据等多维数据。
+    </p>
+  </section>
+</section>
+<p class="h60"></p>

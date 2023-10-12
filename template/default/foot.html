@@ -1,0 +1,344 @@
+<style>
+  #contactF {
+    align-items: center;
+  }
+  #contactF img {
+    margin: 20px 0;
+    margin-right: 30px;
+    /* width: 89px; */
+    height: 120px;
+  }
+  #contactF form {
+    flex: 1;
+    display: flex;
+    font-size: 24px;
+    font-family: PingFangSC-Medium, PingFang SC;
+    font-weight: 500;
+    color: #fff;
+    margin: 30px 0;
+  }
+  #contactF form .inputDiv {
+    height: 40px;
+    border-radius: 4px;
+    border: 1px solid #e0e0e0;
+    margin-right: 10px;
+    padding-left: 15px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    background: #fff;
+  }
+  #contactF form .inputDiv input {
+    width: 100%;
+    height: 100%;
+  }
+  #contactF form .inputDiv input::placeholder {
+    color: #aaaaaa;
+  }
+  #contactF form .telDiv > div:first-child {
+    font-size: 14px;
+    color: #333333;
+  }
+  #contactF form .telDiv > div:nth-child(2) {
+    width: 1px;
+    height: 13px;
+    border: 1px solid #e0e0e0;
+    margin: 0 12px;
+  }
+  #contactF form #btn {
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    width: 180px;
+    height: 34px;
+    line-height: 34px;
+    text-align: center;
+    background-color: #c62127;
+    display: block;
+    box-shadow: inset 0px -3px 0px 0px rgba(0, 0, 0, 0.12);
+    border-radius: 4px;
+    margin-right: 2px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  #contactF form #btn:hover::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    opacity: 0.1;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    transition: all 1000s;
+    border-radius: 4px;
+  }
+  #contactF form #btn:hover div {
+    position: relative;
+    z-index: 11;
+  }
+  #contactF .text-error {
+    position: absolute;
+    bottom: -25px;
+    left: 0px;
+    color: #e43a32;
+    font-size: 12px;
+    display: none;
+  }
+</style>
+<div
+  style="
+    box-shadow: 0px 0px 14px 0px rgb(0 0 0 / 6%);
+    background-image: url({pboot:sitedomain}/skin/images/contactbg.png);
+  "
+>
+  <section id="contactF" class="header__wp">
+    <!-- <img src="{pboot:sitedomain}/skin/images/illustrations.png" /> -->
+    <form action="{pboot:msgaction}" method="post">
+      <!-- <div style="flex: 1"></div> -->
+      <div>为您量身定做数智化解决方案</div>
+      <div style="display: flex; margin-left: 12px; flex: 1">
+        <div class="inputDiv" style="width: 27%">
+          <input
+            name="company"
+            id="companyFooter"
+            type="text"
+            placeholder="您的公司名称"
+          />
+          <section class="text-error company-error">公司名称不能为空</section>
+        </div>
+        <!-- <div class="inputDiv" style="width: 27%">
+          <input
+            name="name"
+            id="nameFooter"
+            type="text"
+            placeholder="您的姓名"
+          />
+          <section class="text-error name-error">姓名不能为空</section>
+        </div> -->
+        <div class="telDiv inputDiv" style="flex: 1">
+          <div>+86</div>
+          <div></div>
+          <input
+            name="tel"
+            id="telFooter"
+            type="text"
+            placeholder="您的联系方式"
+          />
+          <div
+            style="
+              height: 100%;
+              border-radius: 4px 0px 0px 4px;
+              border-left: 1px solid #e0e0e0;
+              margin-right: 3px;
+            "
+          ></div>
+          <button type="submit" name="button" value="Send" id="btn">
+            <div>立即联系</div>
+          </button>
+          <section class="text-error tel-error1">电话不能为空</section>
+          <section class="text-error tel-error2">电话格式错误</section>
+        </div>
+      </div>
+    </form>
+  </section>
+</div>
+<div id="footer">
+  <div class="f_top">
+    <div class="wrap header__wp">
+      <!-- <div class="fdr">
+        <div class="f_share">
+          <p>关注机至微信公众号</p>
+          <div class="m-code"><img src="{pboot:companyweixin}" alt="" /></div>
+        </div>
+      </div> -->
+      <div class="fdl">
+        {pboot:nav scode=1}
+        <div class="item">
+          <h3 class="st1">[nav:name]</h3>
+          <ul>
+            {pboot:2nav parent=[nav:scode]}
+            <li><a href="[nav:link][2nav:subname]">[2nav:name]</a></li>
+            {/pboot:2nav}
+          </ul>
+        </div>
+        {/pboot:nav} {pboot:nav scode='7,14,20,26'}
+        <div class="item">
+          <h3 class="st1">[nav:name]</h3>
+          <ul>
+            {pboot:2nav parent=[nav:scode]}
+            <li><a href="[2nav:link]">[2nav:name]</a></li>
+            {/pboot:2nav}
+          </ul>
+        </div>
+        {/pboot:nav}
+        <div class="item f_address">
+          <h3 class="st1">联系我们</h3>
+          <div>
+            <!-- <p>手机：{pboot:companymobile}</p> -->
+            <p>电话：{pboot:companyphone}</p>
+            <p>邮箱：{pboot:companyemail}</p>
+            <!-- <p>QQ：{pboot:companyqq}</p> -->
+            <p>地址：{pboot:companyaddress}</p>
+          </div>
+        </div>
+      </div>
+      <div class="fdr">
+        <div class="f_share">
+          <p>关注机至公众号</p>
+          <div class="m-code"><img src="{pboot:companyweixin}" alt="" /></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="f_bot" style="text-align: center">
+    <div class="wrap">
+      {pboot:sitecopyright}&nbsp;&nbsp;<a
+        href="https://beian.miit.gov.cn/"
+        rel="nofollow"
+      >
+        {pboot:siteicp}
+      </a>
+      <!-- <a href="{pboot:sitedomain}/index.php/sitemap.xml" target="_blank">
+        xml地图
+      </a>
+      <a href="https://www.adminbuy.cn/" target="_blank">网站源码</a>
+      {pboot:sitestatistical} -->
+    </div>
+  </div>
+</div>
+<nav class="navbar navbar-default navbar-fixed-bottom mfoot_box">
+  <div
+    class="{pboot:if({sort:scode}==0)}mfoot_nav activeMenuApp{else}mfoot_nav{/pboot:if}"
+  >
+    <a href="{pboot:sitedomain}/">
+      <span class="glyphicon glyphicon-home btn-lg" aria-hidden="true"> </span>
+      首页
+    </a>
+  </div>
+  <div
+    class="{pboot:if({sort:scode}==30)}mfoot_nav activeMenuApp{else}mfoot_nav{/pboot:if}"
+  >
+    <!-- tel:{pboot:companymobile} -->
+    <a href="{pboot:sitedomain}/?contact/">
+      <span class="glyphicon glyphicon-phone btn-lg" aria-hidden="true"></span>
+      咨询
+    </a>
+  </div>
+  <div class="mfoot_nav cd-nav-trigger2">
+    <a id="classificationId" href="#slideNav">
+      <span
+        class="glyphicon glyphicon-th-list btn-lg"
+        aria-hidden="true"
+      ></span>
+      分类
+    </a>
+  </div>
+  <div class="mfoot_nav">
+    <a id="gototop" href="#">
+      <span
+        class="glyphicon glyphicon-circle-arrow-up btn-lg"
+        aria-hidden="true"
+      ></span>
+      顶部
+    </a>
+  </div>
+</nav>
+<script
+  type="text/javascript"
+  language="javascript"
+  src="{pboot:sitedomain}/skin/js/transform.js"
+></script>
+<script>
+  $(function () {
+    $('#contactF').on('change', 'input', function () {
+      const name = $(this).attr('name');
+      checkFun(name);
+    });
+    $('#btn').click(function () {
+      let state = true;
+      // 公司名称
+      if ($('#companyFooter').val() === '') {
+        $('#contactF .company-error').show();
+        $('#companyFooter').focus();
+        state = false;
+      }
+      // 客户名称
+      if ($('#nameFooter').val() == '') {
+        $('#contactF .name-error').show();
+        $('#nameFooter').focus();
+        state = false;
+      }
+      // 手机
+      if ($('#telFooter').val() == '') {
+        $('#contactF .tel-error1').show();
+        $('#contactF .tel-error2').hide();
+        $('#telFooter').focus();
+        state = false;
+      }
+      if (
+        !$('#telFooter')
+          .val()
+          .match(
+            /^(((13[0-9]{1})|(14[0-9]{1})|(15[0-9]{1})|(16[0-9]{1})|(17[0-9]{1})|(18[0-9]{1})|(19[0-9]{1}))+\d{8})$/,
+          )
+      ) {
+        $('#contactF .tel-error2').show();
+        $('#contactF .tel-error1').hide();
+        $('#telFooter').focus();
+        state = false;
+      }
+      return state;
+    });
+    function checkFun(name) {
+      // 公司名称
+      if (name === 'company') {
+        if ($('#companyFooter').val() === '') {
+          $('#contactF .company-error').show();
+          $('#companyFooter').focus();
+          return false;
+        } else {
+          $('#contactF .company-error').hide();
+        }
+      }
+      // 名称
+      if (name === 'name') {
+        if ($('#nameFooter').val() == '') {
+          $('#contactF .name-error').show();
+          $('#nameFooter').focus();
+          return false;
+        } else {
+          $('#contactF .name-error').hide();
+        }
+      }
+      // 手机
+      if (name === 'tel') {
+        if ($('#telFooter').val() == '') {
+          $('#contactF .tel-error1').show();
+          $('#contactF .tel-error2').hide();
+          $('#telFooter').focus();
+          return false;
+        } else {
+          $('#contactF .tel-error1').hide();
+        }
+        if (
+          !$('#telFooter')
+            .val()
+            .match(
+              /^(((13[0-9]{1})|(14[0-9]{1})|(15[0-9]{1})|(16[0-9]{1})|(17[0-9]{1})|(18[0-9]{1})|(19[0-9]{1}))+\d{8})$/,
+            )
+        ) {
+          $('#contactF .tel-error2').show();
+          $('#contactF .tel-error1').hide();
+          $('#telFooter').focus();
+          return false;
+        } else {
+          $('#contactF .tel-error2').hide();
+        }
+      }
+    }
+  });
+</script>

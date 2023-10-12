@@ -1,0 +1,189 @@
+<!-- 弹出框 -->
+<link rel="stylesheet" href="{pboot:sitedomain}/skin/css/dialog.css" />
+<link rel="stylesheet" href="{pboot:sitedomain}/skin/css/dialog-laura.css" />
+<script src="{pboot:sitedomain}/skin/js/snap.svg-min.js"></script>
+<script src="{pboot:sitedomain}/skin/js/modernizr.custom.js"></script>
+<script src="{pboot:sitedomain}/skin/js/classie.js"></script>
+<script src="{pboot:sitedomain}/skin/js/dialogFx.js"></script>
+
+<div id="header" class="header__scroll">
+  <div class="header__wp">
+    <div class="logo">
+      <a href="{pboot:sitedomain}/">
+        <img src="{pboot:sitelogo}" alt="{pboot:companyname}" />
+        <!-- <img
+          src="{pboot:sitedomain}/skin/images/login2.png"
+          style="width: 150px; height: 43px"
+        /> -->
+      </a>
+      <!-- <img src="{label:logor}" alt="{pboot:companyname}" class="txt" /> -->
+    </div>
+    <a href="#slideNav" class="menuBtn phone-menu">
+      <em class="s1"></em> <em class="s2"></em> <em class="s3"></em>
+    </a>
+    <!-- <div class="hdr"><a id="translateLink" class="hd-report">繁體中文</a></div> -->
+    <div id="nav">
+      <ul>
+        <li class="{pboot:if(0=='{sort:scode}')}active{/pboot:if}">
+          <a href="{pboot:sitedomain}/" class="v1">首页</a>
+        </li>
+        <!-- 关于机至 -->
+        {pboot:nav scode=1}
+        <li class="{pboot:if('[nav:scode]'=='{sort:tcode}')}active{/pboot:if}">
+          <!-- 一级目录 -->
+          <a href="[nav:link]" class="v1"
+            >[nav:name]
+            <img
+              src="{pboot:sitedomain}/skin/images/disposition/arrowdown.png"
+            />
+          </a>
+
+          {pboot:if([nav:soncount]>0)}
+          <!-- 二级目录 -->
+          <dl class="nav_sub">
+            <div class="nav_sub--box">
+              <dd>
+                <a href="[nav:link]" class="nav_sub--title">[nav:name]</a>
+              </dd>
+              <section>
+                {pboot:2nav parent=[nav:scode]}
+                <dd>
+                  <img
+                    src="{pboot:sitedomain}/skin/images/disposition/nav.png"
+                  />
+                  <a href="[nav:link][2nav:subname]">[2nav:name]</a>
+                </dd>
+                {/pboot:2nav}
+              </section>
+            </div>
+          </dl>
+          {/pboot:if}
+        </li>
+        {/pboot:nav} {pboot:nav scode='14,20,26,30'}
+        <li class="{pboot:if('[nav:scode]'=='{sort:tcode}')}active{/pboot:if}">
+          {pboot:if([nav:scode] == 14)} {pboot:2nav parent=[nav:scode] num='1'}
+          <a href="[2nav:link]" class="v1">
+            [nav:name]
+            <img
+              src="{pboot:sitedomain}/skin/images/disposition/arrowdown.png"
+            />
+          </a>
+
+          {/pboot:2nav} {else}
+          <a href="[nav:link]" class="v1">
+            [nav:name]
+            <img
+              src="{pboot:sitedomain}/skin/images/disposition/arrowdown.png"
+            />
+          </a>
+          {/pboot:if} {pboot:if([nav:soncount]>0)}
+          <!-- 二级目录 -->
+          <!-- 联系我们 -->
+          {pboot:2if([nav:scode] == 30)}
+          <dl class="nav_sub" style="width: 520px">
+            <div class="contactUsNav">
+              <!-- 左边 -->
+              <div class="nav_sub--left">
+                <dd>
+                  <a href="[nav:link]" class="nav_sub--title">[nav:name]</a>
+                </dd>
+                <section>
+                  {pboot:2nav parent=[nav:scode]}
+                  <dd>
+                    <img
+                      src="{pboot:sitedomain}/skin/images/disposition/nav.png"
+                    />
+                    <a target="_blank" href="[2nav:link]">[2nav:name]</a>
+                  </dd>
+                  {/pboot:2nav}
+                </section>
+              </div>
+              <!-- 右边 联系电话 -->
+              <div class="nav_sub--right">
+                <div>
+                  <div>热线电话</div>
+                  <div>{pboot:companyphone}</div>
+                  <div>联系邮箱</div>
+                  <div>{pboot:companyemail}</div>
+                </div>
+                <div>
+                  <img
+                    style="height: 88px; width: 88px; min-width: 88px"
+                    src="{pboot:sitedomain}/skin/images/publicAccount.png"
+                    alt=""
+                  />
+                  <div>关注微信公众号</div>
+                </div>
+              </div>
+            </div>
+          </dl>
+          {2else}
+          <!-- 下拉出来的框 -->
+          <dl class="nav_sub">
+            <div class="nav_sub--box">
+              <dd>
+                {pboot:3if([nav:scode] == 14)} {pboot:2nav parent=[nav:scode]
+                num='1'}
+                <a href="[2nav:link]" class="nav_sub--title"> [nav:name] </a>
+                {/pboot:2nav} {3else}
+                <a href="[nav:link]" class="nav_sub--title">[nav:name]</a>
+                {/pboot:3if}
+              </dd>
+              <section>
+                {pboot:2nav parent=[nav:scode]}
+                <dd>
+                  <img
+                    src="{pboot:sitedomain}/skin/images/disposition/nav.png"
+                  />
+                  <a href="[2nav:link]">[2nav:name]</a>
+                </dd>
+                {/pboot:2nav}
+              </section>
+            </div>
+          </dl>
+          {/pboot:2if}{/pboot:if}
+        </li>
+        {/pboot:nav}
+      </ul>
+    </div>
+    <div class="bookDemoClass" id="experiencePro" class="experiencePro__scroll">
+      <div>申请产品体验</div>
+    </div>
+  </div>
+</div>
+<div id="slideNav">
+  <ul>
+    <li><a href="{pboot:sitedomain}/">首页</a></li>
+    {pboot:nav scode=1}
+    <li>
+      <a href="[nav:link]">[nav:name]</a>
+      {pboot:if([nav:soncount]>0)}
+      <ul>
+        {pboot:2nav parent=[nav:scode]}
+        <li><a href="[nav:link][2nav:subname]">[2nav:name]</a></li>
+        {/pboot:2nav}
+      </ul>
+      {/pboot:if}
+    </li>
+    {/pboot:nav} {pboot:nav scode='7,14,20,26,30'}
+    <li>
+      {pboot:if([nav:scode] == 14)} {pboot:2nav parent=[nav:scode] num='1'}
+      <a href="[2nav:link]"> [nav:name] </a>
+      {/pboot:2nav} {else}
+      <a href="[nav:link]">[nav:name]</a>
+
+      {/pboot:if} {pboot:if([nav:soncount]>0)}
+      <ul>
+        {pboot:2nav parent=[nav:scode]}
+        <li><a href="[2nav:link]">[2nav:name]</a></li>
+        {/pboot:2nav}
+      </ul>
+      {/pboot:if}
+    </li>
+    {/pboot:nav}
+    <!-- <li>
+      <div id="experiencePro">申请产品体验</div>
+    </li> -->
+  </ul>
+</div>
+{include file=../config/experience.html}

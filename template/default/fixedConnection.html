@@ -1,0 +1,145 @@
+<!-- 在线咨询 -->
+<style>
+  #fixedConnection {
+    position: fixed;
+    right: 10px;
+    top: 75%;
+    transform: translateY(-50%);
+    box-sizing: border-box;
+    z-index: 99;
+    width: 42px;
+    border-radius: 6px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+  }
+
+  #fixedConnection .area {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+    width: 100%;
+    height: 42px;
+    background: #c62127;
+    box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.12);
+    border-radius: 6px;
+    margin-bottom: 8px;
+  }
+  #fixedConnection .areaHover {
+    background: #c62127;
+    box-shadow: inset 0px 0px 0px 0px #e9e9e9;
+    color: #fff;
+  }
+
+  #fixedConnection .imgCalss {
+    width: 28px;
+    height: 28px;
+    margin: 20px 0;
+    transition: all 0.5;
+  }
+  #fixedConnection .imgCalss:hover {
+    transform-origin: center;
+    transform: scale(1.2);
+  }
+  #fixedConnection .memo {
+    display: none;
+  }
+  .fixedColor {
+    color: #c62127;
+  }
+  #fixedConnection .memo {
+    position: absolute;
+    left: -155px;
+    top: 0;
+    z-index: 999;
+    width: 139px;
+    background: rgb(255, 255, 255);
+    box-shadow: rgb(0 0 0 / 14%) 0px 0px 6px 0px;
+    border-radius: 6px;
+    text-align: center;
+    font-size: 14px;
+    color: #333333;
+  }
+  #fixedConnection .memo:after {
+    border: solid transparent;
+    content: ' ';
+    height: 0;
+    left: 100%;
+    position: absolute;
+    width: 0;
+    border-width: 7px;
+    border-left-color: #fff;
+    top: 15px;
+  }
+  #fixedConnection #publicId {
+    height: 159px;
+  }
+  #fixedConnection .sweep {
+    font-size: 14px;
+    color: #333333;
+    line-height: 0px;
+  }
+  #fixedConnection .focusOn {
+    margin-top: 8px;
+    font-size: 12px;
+    color: #808080;
+    line-height: 2;
+  }
+  #contactNumId {
+    padding: 20px 10px !important;
+    width: auto !important;
+    left: -190px !important;
+  }
+</style>
+<div id="fixedConnection">
+  <div class="area">
+    <div class="animatClass">
+      <img src="{pboot:sitedomain}/skin/images/fixed1.png" class="imgCalss" />
+    </div>
+    <div class="memo" id="contactNumId">
+      <div>热线电话</div>
+      <div style="margin-top: 5px">{pboot:companyphone}</div>
+      <div style="margin-top: 25px">联系邮箱</div>
+      <div style="margin-top: 5px">{pboot:companyemail}</div>
+    </div>
+  </div>
+  <div class="area">
+    <div class="animatClass">
+      <img src="{pboot:sitedomain}/skin/images/fixed2.png" class="imgCalss" />
+    </div>
+    <div class="memo" id="publicId">
+      <img
+        style="height: 88px; width: 88px; margin: 15px 0"
+        src="{pboot:sitedomain}/skin/images/publicAccount.png"
+        alt=""
+      />
+      <div class="sweep">扫一扫</div>
+      <div class="focusOn">关注微信公众号</div>
+    </div>
+  </div>
+  <div class="area bookDemoClass" id="jumpDemoId">
+    <div class="animatClass">
+      <img src="{pboot:sitedomain}/skin/images/fixed3.png" class="imgCalss" />
+    </div>
+    <div class="memo" style="padding: 20px 0">
+      <div>产品演示</div>
+    </div>
+  </div>
+  <div class="area demo" id="scrollTopId" style="background: #fff">
+    <div class="animatClass">
+      <img
+        src="{pboot:sitedomain}/skin/images/fixed4.png"
+        class="imgCalss jumptop1"
+      />
+      <img
+        src="{pboot:sitedomain}/skin/images/fixed5.png"
+        class="imgCalss jumptop2"
+        style="display: none"
+      />
+    </div>
+  </div>
+</div>

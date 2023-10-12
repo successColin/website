@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="cn">
+  <head>
+    <meta charset="UTF-8" />
+    <title>
+      {pboot:if('{sort:title}'=='')}{pboot:pagetitle}{else}{sort:title}{/pboot:if}
+    </title>
+    <meta
+      name="keywords"
+      content="{pboot:if('{sort:keywords}'=='')}{pboot:pagekeywords}{else}{sort:keywords}{/pboot:if}"
+    />
+    <meta
+      name="description"
+      content="{pboot:if('{sort:description}'=='')}{pboot:pagedescription}{else}{sort:description}{/pboot:if}"
+    />
+    <meta name="renderer" content="webkit" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0,user-scalable=no"
+    />
+    <link rel="stylesheet" href="{pboot:sitedomain}/skin/css/bootstrap.css" />
+    <link rel="stylesheet" href="{pboot:sitedomain}/skin/css/menu.css" />
+    <link rel="stylesheet" href="{pboot:sitedomain}/skin/css/style.css" />
+    <link rel="stylesheet" href="{pboot:sitedomain}/skin/css/less.css" />
+    <link rel="stylesheet" href="{pboot:sitedomain}/skin/css/lightbox.css" />
+    <link rel="stylesheet" href="{pboot:sitedomain}/skin/css/bxslider.css" />
+    <link rel="stylesheet" href="{pboot:sitedomain}/skin/css/pages.css" />
+    <link rel="stylesheet" href="{pboot:sitedomain}/skin/css/swiper.min.css" />
+    <!--[if lte IE 8]>
+      <link rel="stylesheet" href="{pboot:sitedomain}/skin/css/ie78.css" />
+    <![endif]-->
+    <script
+      type="text/javascript"
+      src="{pboot:sitedomain}/skin/js/jquery.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="{pboot:sitedomain}/skin/js/jquery.mmenu.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="{pboot:sitedomain}/skin/js/lib.js"
+    ></script>
+    <!-- animate Js -->
+    <script
+      type="text/javascript"
+      src="{pboot:sitedomain}/skin/js/wow.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="{pboot:sitedomain}/skin/js/animate.js"
+    ></script>
+    <script type="text/javascript" src="{pboot:sitedomain}/skin/js/swiper.min.js"></script>
+    <script src="{pboot:sitedomain}/skin/js/bxslider.min.js"></script>
+    <script src="{pboot:sitedomain}/skin/js/lightbox.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        $('.showpic_flash').bxSlider({
+          pagerCustom: '#pic-page',
+          adaptiveHeight: true,
+        });
+      });
+    </script>
+  </head>
+  <body oncontextmenu="return false" ondragstart="return false">
+    <div class="wrapper">
+      {include file=head.html} {pboot:sort scode={sort:tcode}}
+      <div id="ban" style="background-image: url([sort:pic])">
+        <div class="ban_txt">
+          <div class="wp text__align--center">
+            <h2>[sort:subname]</h2>
+            <h4 class="animate" style="margin-top: 20px;">[sort:def1]</h4>
+          </div>
+        </div>
+      </div>
+      {/pboot:sort}
+      <div id="snav">
+        <div class="wp">
+          <span class="subMenuBtn"
+            ><em class="s1"></em><em class="s2"></em><em class="s3"></em
+          ></span>
+          <ul>
+            {pboot:nav scode=1} {pboot:2nav parent=[nav:scode]}
+            <li>
+              <a href="[nav:link][2nav:subname]" class="s1">[2nav:name]</a>
+            </li>
+            {/pboot:2nav} {/pboot:nav}
+          </ul>
+        </div>
+      </div>
+      <div id="main">
+        <div class="index-row index-row-bottom" id="Profile">
+          <div class="wp">
+            <h2 class="tit-1">公司简介</h2>
+            <div class="m-Profile">
+              <div class="text">
+                <div class="m-txt1">
+                  <!-- <h3>
+                    {pboot:companyname}<br />
+                    <i><span style="font-size: 12px">{label:cnameen}</span></i>
+                  </h3> -->
+                  {pboot:content id=44}[content:content]{/pboot:content}
+                </div>
+              </div>
+              <div class="picture">
+                <!-- <img src="{sort:ico}" alt="公司简介" /> -->
+                <video muted controls autoplay loop="loop" style="width: 100%;" id="videoId">
+                  <source src="{pboot:sitedomain}/skin/images/publicity.mp4" type="video/mp4"></source>
+                </video>
+              </div>
+            </div>
+            <ul class="txtList1 company__profile">
+              <li>
+                <div>
+                  <div>愿景</div>
+                  <p>让工业更美好</p>
+                </div>
+                <div>
+                  <div>使命</div>
+                  <p>数字化技术赋能企业</p>
+                </div>
+              </li>
+              <li>
+                <div class="con">
+                  <div class="num"><b>300</b><sup>+</sup></div>
+                  <p>服务300+客户</p>
+                </div>
+              </li>
+              <li>
+                <div class="con">
+                  <div class="num"><b>20</b><sup>年</sup></div>
+                  <p>智慧运维行业经验</p>
+                </div>
+              </li>
+              <li>
+                <div class="con">
+                  <div class="num"><b>30</b><sup>+</sup></div>
+                  <p>软著证书</p>
+                </div>
+              </li>
+              <li>
+                <div class="con">
+                  <div class="num"><b>97.6</b><sup>%</sup></div>
+                  <p>客户满意度与续约率</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div
+          class="m-row"
+          id="Develop"
+          style="
+            background-image: url({pboot:sitedomain}/skin/images/yuanjing.jpg);
+          "
+        >
+          <div class="wp">
+            <h2 class="tit-1 tit-white">核心价值观</h2>
+            <ul class="m-list2">
+              <li>
+                <div class="con">
+                  <div class="icon">
+                    <img
+                      alt="实事求是"
+                      src="{pboot:sitedomain}/skin/images/yj1.png"
+                    />
+                  </div>
+                  <h3>实事求是</h3>
+                  <!-- <div>质量第一</div> -->
+                </div>
+              </li>
+              <li>
+                <div class="con">
+                  <div class="icon">
+                    <img
+                      alt="革故鼎新"
+                      src="{pboot:sitedomain}/skin/images/yj2.png"
+                    />
+                  </div>
+                  <h3>革故鼎新</h3>
+                  <!-- <div>客户至上</div> -->
+                </div>
+              </li>
+              <li>
+                <div class="con">
+                  <div class="icon">
+                    <img
+                      alt="团结精益"
+                      src="{pboot:sitedomain}/skin/images/yj3.png"
+                    />
+                  </div>
+                  <h3>团结精益</h3>
+                  <!-- <div>诚实守信</div> -->
+                </div>
+              </li>
+              <li>
+                <div class="con">
+                  <div class="icon">
+                    <img
+                      alt="止于至善"
+                      src="{pboot:sitedomain}/skin/images/yj4.png"
+                    />
+                  </div>
+                  <h3>止于至善</h3>
+                  <!-- <div>优质服务</div> -->
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="index-row m-Ability" id="Ability">
+          <div class="wp">
+            <h2 class="tit-1">荣誉资质</h2>
+            <div class="honor__card animate">
+              <div>高新技术企业<br/>认证</div>
+              <div>中国新经济工业<br/>互联网领军企业</div>
+              <div>中国智慧工厂解决<br/>方案优秀供应商</div>
+              <div>中国智能制造优<br/>秀推荐产品</div>
+              <div>ISO9001质量管理<br/>体系认证</div>
+              <div>创新创业促进就业<br/>优秀企业</div>
+            </div>
+            <div class="honor__time">
+              <!-- 内容 -->
+              <div class="honor__time--content">
+                <!-- 第一行 -->
+                <div class="honor__time--dec animate">
+                  <div>
+                    支撑建设的智慧工厂项目入选2022陕西省数字经济典型示范案例（工信部）
+                  </div>
+                  支撑建设的智慧工厂项目入选2022陕西省数字经济典型示范案例（工信部）<br>
+                  基于工业互联网的电厂智慧运维平台”入选2022工业互联网赋能绿色低碳发展优秀案例（工联院）<br>
+                  支撑建设的智能制造工厂入选2021智能制造试点示范工厂项目（工信部）<br>
+                  入选工信部评选的2021工业互联网平台创新领航应用案例（工信部）<br>
+                  入选《石化化工行业工业互联网技术及供应商名录（2021年）》（中国信通院）<br>
+                </div>
+                <div class="honor__time--dec animate">
+                  <div>
+                    参与1项国际标准和3项国家标准的编制工作：
+                  </div>
+                  <span></span>《工业自动化系统和设备 预测性维护》IEC/SC65E 国际标准，标准号IEC63270<br>
+                  <span></span>《智能服务 预测性维护 虚拟维修系统技术要求》（计划号：20213056-T-604）<br>
+                  <span></span>《智能服务 预测性维护效率评价方法》（计划号：20230085-T-604）<br>
+                  <span></span>《智能装备预测性维护第2部分：状态监测方法》<br>
+                </div>
+                <div class="honor__time--dec animate">
+                  <div>
+                    取得30+项软件著作权证书
+                  </div>
+                  取得ISO9001质量管理体系认证证书<br>
+                  取得ISO27001信息安全管理体系认证证书<br>
+                  深化信创布局，获得国产操作系统麒麟软件NeoCertify认证<br>
+                </div>
+                <div class="honor__time--dec animate">
+                  <div>
+                    基于工业物联网技术的电厂设备智慧运维和监测诊断平台认定为科技创新（2022）
+                  </div>
+                  设备管理系统认定为科技创新（2020）<br>
+                  汽车行业智能制造与技术创新成果一等奖（2020）<br>
+                  "埃腾设备管理软件"评定为上海市高新技术成果转化项目（2017）<br>
+                </div>
+              </div>
+            </div>
+            <!-- <div>
+              {pboot:list scode=4 num=1 order=sorting} {pboot:content
+              id=63}[content:content]{/pboot:content} {/pboot:list}
+            </div> -->
+          </div>
+        </div>
+        <!-- 专业团队 -->
+        <div
+          class="index-row"
+          id="Test"
+        >
+          <h2 class="tit-1">深耕智能制造领域20<sup>+</sup>年</h2>
+          <div class="m-Device">
+            <div class="wp">
+              <div  class="m-Device-box">
+                <!-- 地图 -->
+                <img
+                  src="{pboot:sitedomain}/skin/images/disposition/ditu.png"
+                  alt=""
+                  style="width: 70%;"
+                  class="full__screen"
+                />
+                <div class="det m-Device-pos animate" style="text-indent:2em;">
+                  {pboot:content id=47}[content:content]{/pboot:content}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- 合作 -->
+      {include file=../config/firmLogo.html}
+      <link rel="stylesheet" href="{pboot:sitedomain}/skin/css/slick.css" />
+      <script
+        type="text/javascript"
+        src="{pboot:sitedomain}/skin/js/slick.min.js"
+      ></script>
+      <script
+        type="text/javascript"
+        src="{pboot:sitedomain}/skin/js/jquery.DB_rotateRollingBanner.min.js"
+      ></script>
+      <script
+        type="text/javascript"
+        src="{pboot:sitedomain}/skin/js/about.js"
+      ></script>
+      {include file=foot.html} {include file=fixedConnection.html}
+    </div>
+  </body>
+</html>

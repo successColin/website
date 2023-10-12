@@ -1,0 +1,134 @@
+.dg-container{
+	width: 100%;
+	/* height: 530px; */
+	position: relative;
+  background-color: #FAFAFA;
+  padding: 40px 0 280px;
+}
+.dg-wrapper{
+	width: 60%;
+	height: 500px;
+	margin: 0 auto;
+	position: relative;
+	-webkit-transform-style: preserve-3d;
+	-moz-transform-style: preserve-3d;
+	-o-transform-style: preserve-3d;
+	-ms-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+	-webkit-perspective: 1000px;
+	-moz-perspective: 1000px;
+	-o-perspective: 1000px;
+	-ms-perspective: 1000px;
+	perspective: 1000px;
+}
+.dg-wrapper div{
+	width: 100%;
+	height: 100%;
+	display: block;
+	position: absolute;
+	left: 0;
+	top: 0;
+	background: transparent url(../images/browser.png) no-repeat top left;
+	box-shadow: 0px 10px 20px rgba(0,0,0,0.14);
+  background: #fff;
+
+	/* display: flex;
+	justify-content: center; */
+}
+.dg-wrapper div.dg-transition{
+	-webkit-transition: all 0.5s ease-in-out;
+	-moz-transition: all 0.5s ease-in-out;
+	-o-transition: all 0.5s ease-in-out;
+	-ms-transition: all 0.5s ease-in-out;
+	transition: all 0.5s ease-in-out;
+}
+.dg-wrapper div img{
+	display: block;
+	margin: 0 auto;
+	/* padding: 41px 0px 0px 1px; */
+  height: 100% !important;
+	object-fit: cover;
+}
+.dg-wrapper div section{
+	text-align: center;
+	text-shadow: 1px 1px 1px rgba(255,255,255,0.5);
+	/* display: none; */
+	position: absolute;
+
+  width: 100%;
+  bottom: -120px;
+}
+.dg-wrapper div section p:nth-child(1) {
+  font-size: 18px;
+  color: #222222;
+  margin-bottom: 0;
+}
+.dg-wrapper div section p:nth-child(2) {
+  margin-bottom: 0;
+  font-size: 16px;
+  color: #666666;
+}
+/* .dg-wrapper div:not(.dg-center) {
+	opacity: 0.5 !important;
+} */
+.dg-wrapper div:not(.dg-center) > section {
+	opacity: 0;
+	bottom: -180px;
+}
+.dg-wrapper div.dg-center section{
+	opacity: 1;
+	transition: all 1s;
+}
+.dg-container nav{
+	width: 58px;
+	position: absolute;
+	z-index: 1000;
+	bottom: 40px;
+	left: 50%;
+	margin-left: -29px;
+}
+.dg-container nav span{
+	text-indent: -9000px;
+	float: left;
+	cursor:pointer;
+	width: 24px;
+	height: 25px;
+	opacity: 0.8;
+	background: transparent url(../images/arrows.png) no-repeat top left;
+}
+.dg-container nav span:hover{
+	opacity: 1;
+}
+.dg-container nav span.dg-next{
+	background-position: top right;
+	margin-left: 10px;
+}
+
+.dg-container .dg-prev, .dg-container .dg-next {
+	position: absolute;
+	left: 100px;
+	bottom: 15%;
+	z-index: 999999;
+
+	width: 48px;
+	height: 48px;
+	background: rgba(0,0,0,0.14);
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+}
+.dg-container .dg-prev:hover, .dg-container .dg-next:hover {
+	background: rgba(0,0,0,0.3);
+}
+
+.dg-container .dg-prev > img, .dg-container .dg-next > img {
+	width: 22px;
+	height: 22px;
+}
+
+.dg-container .dg-next {
+	left: auto;
+	right: 100px;
+}

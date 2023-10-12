@@ -1,0 +1,21 @@
+{pboot:sort scode=6}
+<div class="index-row index-Partner index-row-bottom" id="Partner">
+  <div class="header__wp" style="flex-direction: column;">
+    <h2 class="tit-1">
+      <!-- [sort:name] -->
+      300⁺家大型企业的共同选择
+    </h2>
+    {pboot:list scode=[sort:scode] num=12 order=sorting}
+    <div {pboot:if('[list:i]'=='2')} class="swiper-brand2 swiper-brand swiper-container" {else} class="swiper-brand1 swiper-brand swiper-container" {/pboot:if}>
+      <div class="swiper-wrapper">
+        {pboot:pics id=[list:id] num=200}
+          <div class="h-auto mt-2 swiper-slide">
+            <img src="[pics:src]" alt="[pics:title]" class="img-fluid img[pics:n]" >
+          </div>
+        {/pboot:pics}
+      </div>
+    </div>
+    {/pboot:list}
+  </div>
+</div>
+{/pboot:sort}

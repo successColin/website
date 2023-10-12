@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="cn">
+  <head>
+    <meta charset="UTF-8" />
+    <title>
+      {pboot:if('{sort:title}'=='')}{pboot:pagetitle}{else}{sort:title}{/pboot:if}
+    </title>
+    <meta
+      name="keywords"
+      content="{pboot:if('{sort:keywords}'=='')}{pboot:pagekeywords}{else}{sort:keywords}{/pboot:if}"
+    />
+    <meta
+      name="description"
+      content="{pboot:if('{sort:description}'=='')}{pboot:pagedescription}{else}{sort:description}{/pboot:if}"
+    />
+    <meta name="renderer" content="webkit" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0,user-scalable=no"
+    />
+    <link rel="stylesheet" href="{pboot:sitedomain}/skin/css/bootstrap.css" />
+    <link rel="stylesheet" href="{pboot:sitedomain}/skin/css/menu.css" />
+    <link rel="stylesheet" href="{pboot:sitedomain}/skin/css/style.css" />
+    <link rel="stylesheet" href="{pboot:sitedomain}/skin/css/less.css" />
+    <link rel="stylesheet" href="{pboot:sitedomain}/skin/css/lightbox.css" />
+    <link rel="stylesheet" href="{pboot:sitedomain}/skin/css/bxslider.css" />
+    <link rel="stylesheet" href="{pboot:sitedomain}/skin/css/pages.css" />
+    <!--[if lte IE 8]>
+      <link rel="stylesheet" href="{pboot:sitedomain}/skin/css/ie78.css" />
+    <![endif]-->
+    <script
+      type="text/javascript"
+      src="{pboot:sitedomain}/skin/js/jquery.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="{pboot:sitedomain}/skin/js/jquery.mmenu.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="{pboot:sitedomain}/skin/js/lib.js"
+    ></script>
+    <!-- animate Js -->
+    <script
+      type="text/javascript"
+      src="{pboot:sitedomain}/skin/js/wow.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="{pboot:sitedomain}/skin/js/animate.js"
+    ></script>
+    <script src="{pboot:sitedomain}/skin/js/bxslider.min.js"></script>
+    <script src="{pboot:sitedomain}/skin/js/lightbox.js"></script>
+    <script
+      type="text/javascript"
+      src="https://webapi.amap.com/maps?v=2.0&key=cbaef17eb3b739fb9965934add195bba	"
+    ></script>
+    <style>
+      .required {
+        color: red;
+        display: inline-block;
+        margin-right: 1px;
+        position: relative;
+        top: 2px;
+      }
+      .name {
+        display: flex;
+        color: #999;
+        position: relative;
+        border-radius: 4px;
+      }
+      .name > div {
+        margin-right: 10px;
+      }
+      .inp {
+        flex: 1;
+      }
+      .g_form1 li > div,
+      .g_form1 > div {
+        padding: 0 10px;
+      }
+      .text-error {
+        position: absolute;
+        bottom: -36px;
+        color: #e43a32;
+        font-size: 12px;
+        display: none;
+      }
+      .mess {
+        position: relative;
+      }
+      .g_form1 ul {
+        overflow: inherit;
+      }
+      .mess {
+        flex-direction: column;
+        height: 120px;
+      }
+      #contactF {
+        display: none;
+      }
+    </style>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        $('.showpic_flash').bxSlider({
+          pagerCustom: '#pic-page',
+          adaptiveHeight: true,
+        });
+
+        // {
+        //   zoom: 13,
+        //   center: position,
+        //   icon: 'https://a.amap.com/jsapi_demos/static/demo-center/icons/poi-marker-default.png', //标记的图标
+        //   position: new AMap.LngLat(position), //标记的坐标
+        // }
+
+        const map = new AMap.Map('mapAddress', {
+          zoom: 10, //级别
+          center: [121.503381, 31.341161],
+        });
+        // 创建一个 Marker 实例：
+        var marker = new AMap.Marker({
+          position: new AMap.LngLat(121.503381, 31.341161), // 经纬度对象，也可以是经纬度构成的一维数组[116.39, 39.9]
+          title: '机至数科',
+          // icon: '//a.amap.com/jsapi_demos/static/demo-center/icons/poi-marker-red.png'
+        });
+        // 将创建的点标记添加到已有的地图实例：
+        map.add(marker);
+        AMap.plugin(['AMap.ToolBar', 'AMap.HawkEye'], function () {
+          map.addControl(
+            new AMap.ToolBar({
+              position: 'LT',
+            }),
+          );
+          // 在图面添加鹰眼控件，在地图右下角显示地图的缩略图
+          map.addControl(new AMap.HawkEye({ isOpen: true }));
+        });
+      });
+    </script>
+  </head>
+  <body oncontextmenu="return false" ondragstart="return false">
+    <div class="wrapper">
+      {include file=head.html} {pboot:sort scode={sort:tcode}}
+      <div id="ban" style="background-image: url([sort:pic])">
+        <div class="ban_txt">
+          <div class="wp text__align--center">
+            <h2>[sort:subname]</h2>
+            <h4 class="animate" style="margin-top: 20px">[sort:def1]</h4>
+          </div>
+        </div>
+      </div>
+      {/pboot:sort}
+      <!-- <div
+        id="ban"
+        style="
+          background-image: url({pboot:sitedomain}/skin/images/inb{sort:tcode}.jpg);
+        "
+      >
+        <div class="ban_txt">
+          <div class="wp">
+            <h2>
+              <em>{pboot:sort scode={sort:tcode}}[sort:subname]{/pboot:sort}</em
+              >{sort:topname}
+            </h2>
+          </div>
+        </div>
+      </div> -->
+      <div id="main">
+        <div class="MessBox" id="Message">
+          <div class="wp">
+            <h2 class="tit-1">留言咨询</h2>
+            <div class="contact__memo animate">
+              机至数科致力于为资产密集型企业提供行业优选的，基于数据科学的设备管理软件平台和智造云服务、智慧运维、能源行业设备维护系统、设备状态监测效益、预测性维护。
+            </div>
+            <form action="{pboot:msgaction}" method="post">
+              <div class="g_form1">
+                <ul>
+                  <li>
+                    <div class="name">
+                      <div>
+                        <div class="required">*</div>
+                        姓 名
+                      </div>
+                      <input
+                        name="name"
+                        id="name"
+                        type="text"
+                        placeholder=""
+                        class="inp"
+                      />
+                      <section class="text-error name-error">
+                        姓名 不能为空
+                      </section>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="name">
+                      <div>
+                        <div class="required">*</div>
+                        电 话
+                      </div>
+                      <input
+                        name="tel"
+                        id="tel"
+                        type="text"
+                        placeholder=""
+                        class="inp"
+                      />
+                      <section class="text-error tel-error1">
+                        电话 不能为空
+                      </section>
+                      <section class="text-error tel-error2">
+                        电话 格式错误
+                      </section>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="name">
+                      <div>
+                        <div class="required">*</div>
+                        邮 箱
+                      </div>
+                      <input
+                        name="email"
+                        id="email"
+                        type="text"
+                        placeholder=""
+                        class="inp"
+                      />
+                      <section class="text-error email-error1">
+                        邮箱 不能为空
+                      </section>
+                      <section class="text-error email-error2">
+                        邮箱 格式错误
+                      </section>
+                    </div>
+                  </li>
+                  <li style="width: 100%; margin-bottom: 40px">
+                    <div class="mess name">
+                      <div>
+                        <div class="required">*</div>
+                        您的需求
+                      </div>
+                      <textarea
+                        name="yuanwang"
+                        id="txmessage"
+                        class="inp inp_area"
+                      ></textarea>
+                      <section class="text-error txmessage-error">
+                        需求内容 不能为空
+                      </section>
+                    </div>
+                  </li>
+                </ul>
+                <button
+                  type="submit"
+                  name="button"
+                  value="Send"
+                  class="btn3"
+                  id="tj"
+                >
+                  <div>提交留言</div>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="AddressBox" id="Address">
+          <div class="wp">
+            <h2 class="tit-1">联系我们</h2>
+            <section class="addressBox__map">
+              <div id="mapAddress"></div>
+              <div class="text addressBox__dec">
+                <!-- 联系我们 -->
+                {include file=../config/contactUs.html}
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+      {include file=foot.html} {include file=fixedConnection.html}
+    </div>
+    <script>
+      $(function () {
+        $('.g_form1 ul').on('change', '.inp', function () {
+          console.log('变化了', $(this).attr('name'));
+          const name = $(this).attr('name');
+          checkFun(name);
+        });
+        $('#tj').click(function () {
+          let state = true;
+          // 名称
+          if ($('#name').val() == '') {
+            $('.name-error').show();
+            $('#name').focus();
+            state = false;
+          }
+          // 手机
+          if ($('#tel').val() == '') {
+            $('.tel-error1').show();
+            $('.tel-error2').hide();
+            $('#tel').focus();
+            state = false;
+          }
+          if (
+            !$('#tel')
+              .val()
+              .match(
+                /^(((13[0-9]{1})|(14[0-9]{1})|(15[0-9]{1})|(16[0-9]{1})|(17[0-9]{1})|(18[0-9]{1})|(19[0-9]{1}))+\d{8})$/,
+              )
+          ) {
+            $('.tel-error2').show();
+            $('.tel-error1').hide();
+            $('#tel').focus();
+            state = false;
+          }
+          // -----------
+          // 邮箱
+          if ($('#email').val() == '') {
+            $('.email-error1').show();
+            $('.email-error2').hide();
+            $('#email').focus();
+            state = false;
+          }
+          if (
+            !$('#email')
+              .val()
+              .match(/^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(\.[a-zA-Z0-9_-])+/)
+          ) {
+            $('.email-error2').show();
+            $('.email-error1').hide();
+            $('#email').focus();
+            state = false;
+          }
+          // ------------
+          // 需求内容
+          if ($('#txmessage').val() == '') {
+            $('.txmessage-error').show();
+            $('#txmessage').focus();
+            state = false;
+          }
+          return state;
+        });
+        function checkFun(name) {
+          // 名称
+          if (name === 'name') {
+            if ($('#name').val() == '') {
+              $('.name-error').show();
+              $('#name').focus();
+              return false;
+            } else {
+              $('.name-error').hide();
+            }
+          }
+          // 手机
+          if (name === 'tel') {
+            if ($('#tel').val() == '') {
+              $('.tel-error1').show();
+              $('.tel-error2').hide();
+              $('#tel').focus();
+              return false;
+            } else {
+              $('.tel-error1').hide();
+            }
+            if (
+              !$('#tel')
+                .val()
+                .match(
+                  /^(((13[0-9]{1})|(14[0-9]{1})|(15[0-9]{1})|(16[0-9]{1})|(17[0-9]{1})|(18[0-9]{1})|(19[0-9]{1}))+\d{8})$/,
+                )
+            ) {
+              $('.tel-error2').show();
+              $('.tel-error1').hide();
+              $('#tel').focus();
+              return false;
+            } else {
+              $('.tel-error2').hide();
+            }
+          }
+          // -----------
+          // 邮箱
+          if (name === 'email') {
+            if ($('#email').val() == '') {
+              $('.email-error1').show();
+              $('.email-error2').hide();
+              $('#email').focus();
+              return false;
+            } else {
+              $('.email-error1').hide();
+            }
+            if (
+              !$('#email')
+                .val()
+                .match(/^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(\.[a-zA-Z0-9_-])+/)
+            ) {
+              $('.email-error2').show();
+              $('.email-error1').hide();
+              $('#email').focus();
+              return false;
+            } else {
+              $('.email-error2').hide();
+            }
+          }
+          // ------------
+          if (name === 'yuanwang') {
+            if ($('#txmessage').val() == '') {
+              $('.txmessage-error').show();
+              $('#txmessage').focus();
+              return false;
+            } else {
+              $('.txmessage-error').hide();
+            }
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

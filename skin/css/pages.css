@@ -1,0 +1,8 @@
+.pagess {clear: both;padding-top: 30px;padding-bottom:60px;overflow: hidden;margin-left: 0px;text-align: center;font-size:12px}
+.pagess .page-status{display:none;}
+.pagess .page-index,.pagess .page-pre,.pagess .page-next,.pagess .page-last,.pagess .page-num{ display:inline-block;border: 1px solid #ccc;padding: 8px 15px;margin: 0 3px 3px 3px;line-height: 20px;background: #fff;color:#999}
+.pagess .page-index:hover,.pagess .page-pre:hover,.pagess .page-next:hover,.pagess .page-last:hover,.pagess .page-num:hover{ background:#c62127; color:#fff;border: 1px solid #c62127}
+.pagess .page-index:hover a,.pagess .page-pre:hover a,.pagess .page-next:hover a,.pagess .page-last:hover a,.pagess .page-num:hover a{color:#fff;}
+.pagess ul span .page-num-current {display: inline-block;border: 1px solid #c62127;padding: 8px 15px;margin: 0 3px;background: #c62127;color: #fff;}
+.pagess ul span .page-num-current {color: #fff;}
+.pagess ul span a{ display:block;color:#999}

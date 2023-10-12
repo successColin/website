@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+<meta charset="UTF-8">
+<title>{pboot:sitetitle}</title>
+<meta name="keywords" content="{pboot:sitekeywords}">
+<meta name="description" content="{pboot:sitedescription}">
+<meta name="author" content="www.adminbuy.cn k337" />
+<meta name="renderer" content="webkit">
+<meta name="format-detection" content="telephone=no" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta http-equiv="Expires" content="0">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Cache-control" content="no-cache">
+<meta http-equiv="Cache" content="no-cache">
+<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+<link rel="stylesheet" href="{pboot:sitedomain}/skin/css/bootstrap.css" />
+<link rel="stylesheet" href="{pboot:sitedomain}/skin/css/menu.css">
+<link rel="stylesheet" href="{pboot:sitedomain}/skin/css/style.css" />
+<link rel="stylesheet" href="{pboot:sitedomain}/skin/css/less.css" />
+<link rel="stylesheet" href="{pboot:sitedomain}/skin/css/lightbox.css" />
+<link rel="stylesheet" href="{pboot:sitedomain}/skin/css/bxslider.css" />
+<link rel="stylesheet" href="{pboot:sitedomain}/skin/css/pages.css" />
+<link rel="stylesheet" href="{pboot:sitedomain}/skin/css/swiper.min.css" />
+<!--[if lte IE 8]>
+	<link rel="stylesheet" href="{pboot:sitedomain}/skin/css/ie78.css">
+<![endif]-->
+<script type="text/javascript" src="{pboot:sitedomain}/skin/js/jquery.js"></script>
+<script type="text/javascript" src="{pboot:sitedomain}/skin/js/jquery.mmenu.min.js"></script>
+
+<script type="text/javascript" src="{pboot:sitedomain}/skin/js/lib.js"></script>
+<script type="text/javascript" src="{pboot:sitedomain}/skin/js/scrollTable.js"></script>
+<!-- animate Js -->
+<script type="text/javascript" src="{pboot:sitedomain}/skin/js/countUp.min.js"></script>
+<script type="text/javascript" src="{pboot:sitedomain}/skin/js/wow.js"></script>
+<script type="text/javascript" src="{pboot:sitedomain}/skin/js/animate.js"></script>
+<script type="text/javascript" src="{pboot:sitedomain}/skin/js/swiper.min.js"></script>
+<script src="{pboot:sitedomain}/skin/js/bxslider.min.js"></script>
+<script src="{pboot:sitedomain}/skin/js/lightbox.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+  $('.showpic_flash').bxSlider({
+    pagerCustom: '#pic-page',
+      adaptiveHeight: true,
+  });
+
+  const ele = $('.new__list--box');
+  for(let i = 0; i < ele.length; i+= 1) {
+    $(ele[i]).FontScroll({ time: 1000, addHeight: 15 });
+  }
+
+
+  $('#banner__btn').click(function () {
+    console.log('进来了=====>', $('#banner__telFooter').val());
+    let state = true
+    // 手机
+    if ($('#banner__telFooter').val() == '') {
+      $('#banner .tel-error1').show();
+      $('#banner .tel-error2').hide();
+      $('#banner__telFooter').focus();
+      state = false;
+    }
+    if (
+      !$('#banner__telFooter')
+        .val()
+        .match(
+          /^(((13[0-9]{1})|(14[0-9]{1})|(15[0-9]{1})|(16[0-9]{1})|(17[0-9]{1})|(18[0-9]{1})|(19[0-9]{1}))+\d{8})$/,
+        )
+    ) {
+      $('#banner .tel-error2').show();
+      $('#banner .tel-error1').hide();
+      $('#banner__telFooter').focus();
+      state = false;
+    }
+    return state;
+  });
+});
+</script>
+</head>
+<body oncontextmenu="return false" ondragstart="return false">
+<div class="wrapper">
+  {include file=head.html}
+  <div id="banner">
+    <form action="{pboot:msgaction}" method="post" id="banner__form" class="animate">
+      <div class="telDiv inputDiv" style="display: flex; margin-top: 40px">
+        <input
+          name="tel"
+          id="banner__telFooter"
+          type="text"
+          placeholder="请输入您的手机号"
+        />
+        <div
+          style="
+            height: 100%;
+            border-radius: 4px 0px 0px 4px;
+            border-left: 1px solid #E9E9E9;
+            margin-right: 3px;
+          "
+        ></div>
+        <button type="submit" name="button" value="Send" id="banner__btn">
+          <div>
+            预约演示
+          </div>
+        </button>
+        <section class="text-error tel-error1">电话不能为空</section>
+        <section class="text-error tel-error2">电话格式错误</section>
+      </div>
+    </form>
+
+    <div class="slider">
+      {pboot:slide gid=1 num=10}
+      <div class="item" style="position: absolute;">
+        <img src="[slide:src]" alt="">
+        <div class="item-txt banner__content">
+          <div class="wp animate">
+            <h2 class="banner__title" {pboot:if('[slide:i]'=='1')} style="color: #333333;"{/pboot:if}>[slide:title]</h2>
+            <h3 class="banner_title2"  {pboot:if('[slide:i]'=='1')} style="color: #333333;"{/pboot:if}>
+              <em>[slide:subtitle]</em>
+            </h3>
+            <!-- {pboot:if('[slide:i]'=='1')} -->
+            <!-- {/pboot:if} -->
+          </div>
+        </div>
+        <!-- <div class="item-con">
+        </div> -->
+      </div>
+	    {/pboot:slide}
+    <!-- 如果需要分页器 -->
+    <!-- 如果需要导航按钮 -->
+    <!-- <div class="swiper-pagination"></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div> -->
+    </div>
+  </div>
+  <div id="main">
+    <!-- 企业数智化低碳转型的十大痛点 -->
+    <!-- pc 端展示 风格 -->
+    <div id="painPoint" class="index-row index-Service">
+      <div class="tit-1">企业数智化低碳转型的十大痛点</div>
+      <div class="painPoint__content">
+        <!-- 左边 -->
+        <div class="painPoint__leftBox">
+          <div class="painPoint__ele margin__one painPoint__left--ele animate">
+            <div class="textRight">
+              数据孤岛众多
+            </div>
+            <div class="textRight">
+              各种各样的工厂系统烟囱式割裂分布，数据分散不<br />统一，业务融合困难。
+            </div>
+            <img src="{pboot:sitedomain}/skin/images/painpoint/1.png" alt="">
+          </div>
+          <div class="painPoint__ele margin__two painPoint__left--ele animate">
+            <div class="textRight">
+              经验传承难
+            </div>
+            <div class="textRight">
+              关键岗位人员离开后，工业Know-How 难以传承。
+            </div>
+            <img src="{pboot:sitedomain}/skin/images/painpoint/3.png" alt="">
+          </div>
+          <div class="painPoint__ele margin__three painPoint__left--ele animate">
+            <div class="textRight">
+              数据利用率低
+            </div>
+            <div class="textRight">
+              企业历史数据冗杂，难以在海量数据中获取有效信息，<br />挖掘数据新价值。
+            </div>
+            <img src="{pboot:sitedomain}/skin/images/painpoint/5.png" alt="">
+          </div>
+          <div class="painPoint__ele margin__four painPoint__left--ele animate">
+            <div class="textRight">
+              数据采集方式落后
+            </div>
+            <div class="textRight">
+              工厂设备多样，人工数据采集工程量大易出错，数据<br />归档和检索困难。
+            </div>
+            <img src="{pboot:sitedomain}/skin/images/painpoint/7.png" alt="">
+          </div>
+          <div class="painPoint__ele margin__five painPoint__left--ele animate">
+            <div class="textRight">
+              数据报表分析难
+            </div>
+            <div class="textRight">
+              人工记录工厂内各类数据，纸质数据报表缺乏直观的<br />数据可视化展示。
+            </div>
+            <img src="{pboot:sitedomain}/skin/images/painpoint/9.png" alt="">
+          </div>
+        </div>
+        <!-- 右边 -->
+        <div class="painPoint__rightBox">
+          <div class="position__right painPoint__ele margin__six animate">
+            <div>
+              业务决策难
+            </div>
+            <div>
+              难以全面掌握工厂情况，无法进行精准的科学决策。
+            </div>
+            <img src="{pboot:sitedomain}/skin/images/painpoint/2.png" alt="">
+          </div>
+          <div class="position__right painPoint__ele margin__seven animate">
+            <div>
+              数字化程度低
+            </div>
+            <div>
+              企业经营环境不稳定，市场变化快，企业及上下游数<br />字化需求多变。
+            </div>
+            <img src="{pboot:sitedomain}/skin/images/painpoint/4.png" alt="">
+          </div>
+          <div class="position__right painPoint__ele margin__eight animate">
+            <div>
+              数字化能力复制难
+            </div>
+            <div>
+              如何把企业的管理和运营经验快速复制到一个新的工<br />厂也是难点之一。
+            </div>
+            <img src="{pboot:sitedomain}/skin/images/painpoint/6.png" alt="">
+          </div>
+          <div class="position__right painPoint__ele margin__nine animate">
+            <div>
+              安全难保障
+            </div>
+            <div>
+              无法实时反馈异常情况，故障点位难追踪，安全隐患大。<br />
+            </div>
+            <img src="{pboot:sitedomain}/skin/images/painpoint/8.png" alt="">
+          </div>
+          <div class="position__right painPoint__ele margin__ten animate">
+            <div>
+              能源管理方式粗放
+            </div>
+            <div>
+              缺少科学、系统的能源管理和能耗分析手段，设备部署、<br />能耗管理、产能计划无法高效匹配。
+            </div>
+            <img src="{pboot:sitedomain}/skin/images/painpoint/10.png" alt="">
+          </div>
+        </div>
+      </div>
+      <div class="painPoint__content1">
+        <div class="painPoint__box--left">
+          <div class="painPoint__ele">
+            <div><img src="{pboot:sitedomain}/skin/images/painpoint/1.png" alt=""></div>
+            <div>
+              <div>数据孤岛众多</div>
+              <div>各种各样的工厂系统烟囱式割裂分布，数据分散不统一，业务融合困难</div>
+            </div>
+          </div>
+          <div class="painPoint__ele">
+            <div><img src="{pboot:sitedomain}/skin/images/painpoint/3.png" alt=""></div>
+            <div>
+              <div>数字化程度低</div>
+              <div>企业经营环境不稳定，市场变化快，企业及上下游数字化需求多变。</div>
+            </div>
+          </div>
+          <div class="painPoint__ele">
+            <div><img src="{pboot:sitedomain}/skin/images/painpoint/5.png" alt=""></div>
+            <div>
+              <div>数据利用率低</div>
+              <div>企业历史数据冗杂，难以在海量数据中获取有效信息，挖掘数据新价值。</div>
+            </div>
+          </div>
+          <div class="painPoint__ele">
+            <div><img src="{pboot:sitedomain}/skin/images/painpoint/7.png" alt=""></div>
+            <div>
+              <div>数据采集方式落后</div>
+              <div>工厂设备多样，人工数据采集工程量大易出错，数据归档和检索困难。</div>
+            </div>
+          </div>
+          <div class="painPoint__ele">
+            <div><img src="{pboot:sitedomain}/skin/images/painpoint/9.png" alt=""></div>
+            <div>
+              <div>数据报表分析难</div>
+              <div>人工记录工厂内各类数据，纸质数据报表缺乏直观的数据可视化展示。</div>
+            </div>
+          </div>
+        </div>
+        <div class="painPoint__box--right">
+          <div class="painPoint__ele">
+            <div><img src="{pboot:sitedomain}/skin/images/painpoint/2.png" alt=""></div>
+            <div>
+              <div>业务决策难</div>
+              <div>难以全面掌握工厂情况，无法进行精准的科学决策。</div>
+            </div>
+          </div>
+          <div class="painPoint__ele">
+            <div><img src="{pboot:sitedomain}/skin/images/painpoint/4.png" alt=""></div>
+            <div>
+              <div>经验传承难</div>
+              <div>关键岗位人员离开后，工业Know-How 难以传承。</div>
+            </div>
+          </div>
+          <div class="painPoint__ele">
+            <div><img src="{pboot:sitedomain}/skin/images/painpoint/6.png" alt=""></div>
+            <div>
+              <div>数字化能力复制难</div>
+              <div>如何把企业的管理和运营经验快速复制到一个新的工厂也是难点之一。</div>
+            </div>
+          </div>
+          <div class="painPoint__ele">
+            <div><img src="{pboot:sitedomain}/skin/images/painpoint/8.png" alt=""></div>
+            <div>
+              <div>安全难保障</div>
+              <div>无法实时反馈异常情况，故障点位难追踪，安全隐患大。</div>
+            </div>
+          </div>
+          <div class="painPoint__ele">
+            <div><img src="{pboot:sitedomain}/skin/images/painpoint/10.png" alt=""></div>
+            <div>
+              <div>能源管理方式粗放</div>
+              <div>缺少科学、系统的能源管理和能耗分析手段，设备部署、能耗管理、产能计划无法高效匹配。</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 专业智慧工厂平台解决方案提供商 -->
+    {pboot:nav scode=14}
+    <div class="index-row index-Service scheme">
+      <!-- <h2 class="tit-1">[nav:name]</h2> -->
+      <h2 class="tit-1">专业智慧工厂平台解决方案提供商</h2>
+      <ul class="g-list1">
+        {pboot:2nav parent=[nav:scode] num=5}
+		    <li class="item"> 
+          <a target="_blank" href="[2nav:link]" class="con">
+            <div class="icon icon-front"> <img src="{pboot:sitedomain}/skin/images/s[2nav:i].png" alt="[2nav:name]"> </div>
+            <h4 class="animate">[2nav:name]</h4>
+            <p class="det animate"> [2nav:description]</p>
+            <div class="icon icon-back" style="color: #fff;line-height: 30px;height: 270px;">
+              <div style="font-size: 35px; font-weight: 600;">[2nav:def1]</div>
+              <br />
+              <div style="font-size: 18px;">[2nav:def2]</div>
+              <br />
+              <div class="viewDetails">
+                查看详情
+                <img class="jiantou1" src="{pboot:sitedomain}/skin/images/jiantou.png" alt="">
+                <img class="jiantou2" src="{pboot:sitedomain}/skin/images/jiantouImg.png" alt="">
+              </div>
+            </div>
+          </a> 
+        </li>
+        {/pboot:2nav}
+        <li class="item">
+          <a target="_blank" href="[nav:link]" class="con">
+          <div class="icon icon-front" style="font-size: 24px;color: #C62127; height: 200px; line-height: 200px;">
+            ... ...
+          </div>
+          <h4 class="animate">了解更多</h4>
+          <p class="det animate">查看更多我们的服务项目</p>
+          <div class="icon icon-back" style="display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+          color: #fff;
+          margin-top: -30px;
+          line-height: 130px;
+          "> 
+            ... ...
+          </div>
+          <!-- <div style="color: #fff; font-size: 18px;">了解更多</div> -->
+          <div class="viewDetails">
+            了解更多
+            <img  class="jiantou1" src="{pboot:sitedomain}/skin/images/jiantou.png" alt="">
+            <img  class="jiantou2" src="{pboot:sitedomain}/skin/images/jiantouImg.png" alt="">
+          </div>
+          </a> </li>
+      </ul>
+    </div>
+	  {/pboot:nav}
+    <!-- 成就客户 -->
+    <section id="solution" class="index-row">
+      <div class="header__wp headerClass">
+        <div class="title tit-1">赋能工业企业数智化转型升级</div>
+        <div class="title2 animate">广泛应用于汽车、化工、食药、高新技术等众多资产密集型行业。公司累计为300家企业的3000种设备提供行业优选的综合设备管理解决方案，在EAM领域声誉卓著。</div>
+      </div>
+      <div class="solution__info">
+        {pboot:list scode=20 num=4}
+          <div class="area" {pboot:if('[list:i]'=='2')}id="areaWidthId"{/pboot:if}>
+            <div {pboot:if('[list:i]'=='2')} class="area__left area__left--show" {else} class="area__left otherColor" {/pboot:if}>
+              <div class="info">
+                <div>[list:title]</div>
+                <div>CASES</div>
+              </div>
+              <div class="memo">[list:tags]</div>
+              <a class="details" target="_blank" href="[list:link]">
+                查看详情
+                <img class="jiantou1" src="{pboot:sitedomain}/skin/images/jiantou.png">
+                <img class="jiantou2" src="{pboot:sitedomain}/skin/images/jiantouImg.png">
+              </a>
+            </div>
+            <img src="[list:ico]" alt="[list:title]"  {pboot:if('[list:i]'!='2')} class="solution__info--img"{/pboot:if} />
+            <!-- <a class="details" target="_blank" href="[list:link]">查看详情</a>
+            <div class="info">
+              <div>[list:title]</div>
+              <div>CASES</div>
+            </div> -->
+            <div id='infoBgnSelectId' {pboot:if('[list:i]'=='2')} class="infoBgn"{/pboot:if}></div>
+          </div>
+        {/pboot:list}
+      </div>
+    </section>
+    <!-- 关于机至 -->
+	  {pboot:sort scode=1}
+    <div id="aboutJiZhiId" class="index-row">
+      <!-- <div class="tit-1">[sort:name]</div> -->
+      <div class="tit-1">机至核心团队深耕智能制造20<sup>+</sup>年</div>
+      <div class="aboutJiZhiId__info">
+        <div class="aboutJiZhiId__box header__wp appMargin">
+          <div class="aboutJiZhiId__left">
+            <!-- <div>ABOUT US</div> -->
+            <div style="line-height: 27px;color: #666;" class="animate">{pboot:content id=44}[content:content len=418 drophtml=1]{/pboot:content}...</div>
+            <a href="[sort:link]" class="animate">
+              <div>查看详情</div>
+              <img src="{pboot:sitedomain}/skin/images/jiantou.png" style="
+              width: 12px;
+              height: 7px;
+              margin-left: 6px;"
+            ></a>
+          </div>
+          <div class="aboutJiZhiId__right">
+            <video muted controls autoplay loop="loop" style="width: 514px;" id="videoId">
+              <source src="{pboot:sitedomain}/skin/images/publicity.mp4" type="video/mp4"></source>
+            </video>
+          </div>
+        </div>
+      </div>
+      <div class="aboutJiZhiId__bgn">
+        <div class="header__wp aboutJiZhiId__num appMargin animate">
+          <!--  -->
+          <div class="aboutHover aboutJiZhiId__num--hover">
+            <div style="position: relative;">
+              <div class="numCalss" id="num1">300</div>
+              <div class="unit">家</div>
+            </div>
+            <div class="aboutJiZhiId__num--cont">拥有超过300家客户</div>
+          </div>
+          <div class="aboutHover">
+            <div style="position: relative;">
+              <div class="numCalss" id="num2">100</div>
+              <div class="unit">+</div>
+            </div>
+            <div class="aboutJiZhiId__num--cont aboutJiZhiId__num--font">覆盖4个国家、11个省、100多个城市</div>
+          </div>
+          <div class="aboutHover">
+            <div style="position: relative;">
+              <div class="numCalss" id="num3">20</div>
+              <div class="unit">年</div>
+            </div>
+            <div class="aboutJiZhiId__num--cont aboutJiZhiId__num--font">
+              核心团队深耕智能制造20<sup>+</sup>年
+            </div>
+          </div>
+          <div class="aboutHover">
+            <div style="position: relative;">
+              <div class="numCalss" id="num4">30</div>
+              <div class="unit">万</div>
+            </div>
+            <div class="aboutJiZhiId__num--cont aboutJiZhiId__num--font">平台连接超过30万台设备</div>
+          </div>
+        </div>
+      </div>
+    </div>
+	  {/pboot:sort}
+    
+    <!-- 合作 -->
+    {include file=../config/firmLogo.html}
+    <!-- 新闻动态 -->
+    <div class="index-row index-News index-row-bottom">
+      <div class="header__wp">
+        <!-- 标题 -->
+        {pboot:sort scode=26}<h2 class="tit-1">[sort:name]</h2>{/pboot:sort}
+        <!-- tabs -->
+        <div class="news-tab-tit">
+          <ul class="TAB" id=".news-tab-con">
+            {pboot:nav parent=26}
+			      <li {pboot:if('[nav:i]'=='1')}class='on'{/pboot:if}>[nav:name]</li>
+            {/pboot:nav}
+          </ul>
+        </div>
+        <!-- 内容 -->
+        <div class="tab-con">
+          {pboot:nav parent=26}
+		      <div class="news-tab-con">
+            <div class="new__content">
+              <!-- 第一个 -->
+              {pboot:list scode=[nav:scode] start=1 num=1 order=sorting}
+			        <div class="new__important">
+                <a href="[list:link]" class="con" target="_blank">
+                  <img src="[list:ico]" alt="">
+                  <div class="new__dec">
+                    <div title="[list:title]" class="twoLines fixedheight">[list:title]</div>
+                    <div>
+                      <div class="threeLines">
+                        [list:description]
+                      </div>
+                    </div>
+                    <div>
+                      <div>[list:date style=Y]-[list:date style='m-d']</div>
+                      <div>查看详情</div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              {/pboot:list}
+              <!-- 第二个 -->
+              {pboot:list scode=[nav:scode] start=2 num=1 order=sorting}
+			        <div class="new__important">
+                <a href="[list:link]" class="con" target="_blank">
+                  <img src="[list:ico]" alt="">
+                  <div class="new__dec">
+                    <div title="[list:title]" class="twoLines fixedheight">[list:title]</div>
+                    <div>
+                      <div class="threeLines">
+                        [list:description]
+                      </div>
+                    </div>
+                    <div>
+                      <div>[list:date style=Y]-[list:date style='m-d']</div>
+                      <div>查看详情</div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              {/pboot:list}
+              <!-- 第三个 -->
+              <div class="new__list">
+                {pboot:list scode=[nav:scode] start=3 num=1 order=sorting}
+                <a href="[list:link]" class="con" target="_blank">
+                  <div class="new__list--time">
+                    <div>[list:date style='d']</div>
+                    <div>[list:date style='Y-m']</div>
+                  </div>
+                  <div class="new__list--dec">
+                    <div title="[list:title]" class="oneLines">[list:title]</div>
+                    <div class="twoLines">
+                      [list:description]
+                    </div>
+                    <div>
+                      <div>[list:date style=Y]-[list:date style='m-d']</div>
+                      <div>查看详情</div>
+                    </div>
+                  </div>
+                </a>
+                {/pboot:list}
+                <div class="new__list--box">
+                  <div class="box-body">
+                    {pboot:list scode=[nav:scode] start=4 num=20 order=sorting}
+                    <a href="[list:link]" class="con" target="_blank" style="
+                      display: block;
+                      overflow: hidden;
+                      height: 36px;
+                    ">
+                      <div class="new__list--other">
+                        <div>
+                          <!-- 圆点 -->
+                          <div></div>
+                          <div title="[list:title]" class="oneLines">[list:title]</div>
+                        </div>
+                        <div>[list:date style='m-d']</div>
+                      </div>
+                    </a>
+                    {/pboot:list}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          {/pboot:nav}
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Slider Js -->
+  <link rel="stylesheet" href="{pboot:sitedomain}/skin/css/slick.css">
+  <script type="text/javascript" src="{pboot:sitedomain}/skin/js/slick.min.js"></script> 
+  <script type="text/javascript" src="{pboot:sitedomain}/skin/js/index.js"></script>
+  {include file=foot.html}
+  {include file=fixedConnection.html}
+</div>
+</body>
+</html>
+<script>
+let isOnce = true;
+$(window).scroll(function () {
+  if (
+    $(document).scrollTop() + $(window).height() >
+      $('.aboutJiZhiId__num').offset().top - 20 &&
+    isOnce
+  ) {
+    isOnce = false;
+    var options = {
+      useEasing : true,
+      useGrouping : true,
+      separator : ',',
+      decimal : '.',
+      prefix : '',
+      suffix : ''
+    };
+    var num1 = new CountUp("num1", 0, 300, 0, 2.5, options);
+    var num2 = new CountUp("num2", 0, 100, 0, 2.5, options);
+    var num3 = new CountUp("num3", 0, 20, 0, 2.5, options);
+    var num4 = new CountUp("num4", 0, 30, 0, 2.5, options);
+    num1.start();
+    num2.start();
+    num3.start();
+    num4.start();
+  }
+})
+// $.ajax({
+//     type: 'GET',
+//     url: `/api.php/cms/slide/gid/1/num/10`,
+//     dataType: 'json',
+//     data: {},
+//     success: function (res, status) {
+//       let html = '';
+//       const data = res.data;
+//       data.forEach(item => {
+//         html += `
+//         <div class="swiper-slide">
+//           <img src="${item.pic}" alt="" />
+//           <div class="item-txt">
+//             <div class="wp">
+//               <h2>${item.title}</h2>
+//               <h3 style="margin-top: 20px; font-size: 15px; width: 50%;">
+//                 <em>${item.subtitle}</em>
+//               </h3>
+//             </div>
+//           </div>
+//         </div>
+//         `
+//       });
+//       console.log(html)
+//       $('.swiper-wrapper').append(html);
+//     },
+// });
+// new Swiper('.swiper-container',{
+//     //切换效果
+//     effect: 'vertical',//'flip','coverflow','cube','fade',  默认横向滑动
+//     loop:true,  //是否循环
+//     autoplay: 3000,
+//     // 如果需要分页器
+//     pagination: '.swiper-pagination',
+//     paginationClickable :true,
+//     // 如果需要前进后退按钮
+//     nextButton: '.swiper-button-next',
+//     prevButton: '.swiper-button-prev'
+// });
+</script>

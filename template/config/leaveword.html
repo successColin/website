@@ -1,0 +1,281 @@
+<!--
+ * @Descripttion: 留言
+ * @Author: ytx
+ * @Date: 2023-08-09 17:30:17
+ * @Last Modified by: ytx
+ * @Last Modified time: 2023-08-09 17:30:17
+-->
+<style>
+  .leaveword__form {
+    margin-top: 40px;
+  }
+  .leaveword__form > div:nth-child(1),
+  .leaveword__form > div:nth-child(2) {
+    display: flex;
+  }
+  .leaveword__form > div:nth-child(1) > div {
+    flex: 1;
+    background: #fafafa;
+    border-radius: 4px;
+    border: 1px solid #e0e0e0;
+    height: 40px;
+    position: relative;
+  }
+  .leaveword__form > div:nth-child(1) > div:not(:last-child) {
+    margin-right: 20px;
+  }
+  .leaveword__form > div:nth-child(1) > div > input {
+    width: 100%;
+    height: 37px;
+    padding-left: 15px;
+  }
+
+  .leaveword__form > div:nth-child(2) > div {
+    flex: 1;
+    background: #fafafa;
+    border-radius: 4px;
+    border: 1px solid #e0e0e0;
+    height: 120px;
+    margin-top: 25px;
+    position: relative;
+  }
+  .leaveword__form > div:nth-child(2) > div > textarea {
+    width: 100%;
+    height: 100%;
+    padding: 10px 15px;
+  }
+  .leaveword__btn {
+    width: 120px;
+    height: 34px;
+    line-height: 34px;
+    text-align: center;
+    background: #c62127;
+    display: block;
+    margin: 70px auto 30px;
+    position: relative;
+    box-shadow: inset 0px -3px 0px 0px rgba(0, 0, 0, 0.24);
+    border-radius: 4px;
+
+    font-size: 14px;
+    font-family: PingFangSC-Medium, PingFang SC;
+    font-weight: 500;
+    color: #ffffff;
+  }
+  .leaveword__btn:hover::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    opacity: 0.1;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    transition: all 1000s;
+    border-radius: 4px;
+    border-radius: 18px;
+  }
+  .leaveword__btn:hover div {
+    position: relative;
+    z-index: 11;
+  }
+  .leaveword__form .text-error {
+    position: absolute;
+    bottom: -22px;
+    color: #e43a32;
+    font-size: 12px;
+    display: none;
+  }
+</style>
+<form class="leaveword__form" action="{pboot:msgaction}" method="post">
+  <div>
+    <div>
+      <input
+        name="name"
+        id="name"
+        type="text"
+        placeholder="您的姓名"
+        class="inp"
+      />
+      <section class="text-error name-error">姓名 不能为空</section>
+    </div>
+    <div>
+      <input
+        name="tel"
+        id="tel"
+        type="text"
+        placeholder="您的联系方式"
+        class="inp"
+      />
+      <section class="text-error tel-error1">电话 不能为空</section>
+      <section class="text-error tel-error2">电话 格式错误</section>
+    </div>
+    <div>
+      <input
+        name="email"
+        id="email"
+        type="text"
+        placeholder="您的邮箱"
+        class="inp"
+      />
+      <section class="text-error email-error1">邮箱 不能为空</section>
+      <section class="text-error email-error2">邮箱 格式错误</section>
+    </div>
+  </div>
+  <div>
+    <div>
+      <textarea
+        name="yuanwang"
+        id="txmessage"
+        placeholder="您的需求"
+        class="inp"
+      ></textarea>
+      <section class="text-error txmessage-error">需求内容 不能为空</section>
+    </div>
+  </div>
+  <button
+    type="submit"
+    name="button"
+    value="Send"
+    class="leaveword__btn"
+    id="leavewordBtn"
+  >
+    <div>提交</div>
+  </button>
+</form>
+
+<script>
+  $(function () {
+    $('.leaveword__form').on('change', '.inp', function () {
+      console.log('变化了', $(this).attr('name'));
+      const name = $(this).attr('name');
+      checkFun(name);
+    });
+    $('#leavewordBtn').click(function () {
+      let state = true;
+
+      // 名称
+      if ($('#name').val() == '') {
+        $('.name-error').show();
+        $('#name').focus();
+        state = false;
+      }
+      // 手机
+      if ($('#tel').val() == '') {
+        $('.tel-error1').show();
+        $('.tel-error2').hide();
+        $('#tel').focus();
+        state = false;
+      }
+      if (
+        !$('#tel')
+          .val()
+          .match(
+            /^(((13[0-9]{1})|(14[0-9]{1})|(15[0-9]{1})|(16[0-9]{1})|(17[0-9]{1})|(18[0-9]{1})|(19[0-9]{1}))+\d{8})$/,
+          )
+      ) {
+        $('.tel-error2').show();
+        $('.tel-error1').hide();
+        $('#tel').focus();
+        state = false;
+      }
+      // -----------
+      // 邮箱
+      if ($('#email').val() == '') {
+        $('.email-error1').show();
+        $('.email-error2').hide();
+        $('#email').focus();
+        state = false;
+      }
+      if (
+        !$('#email')
+          .val()
+          .match(/^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(\.[a-zA-Z0-9_-])+/)
+      ) {
+        $('.email-error2').show();
+        $('.email-error1').hide();
+        $('#email').focus();
+        state = false;
+      }
+      // ------------
+      // 需求内容
+      if ($('#txmessage').val() == '') {
+        $('.txmessage-error').show();
+        $('#txmessage').focus();
+        state = false;
+      }
+      return state;
+    });
+    function checkFun(name) {
+      // 名称
+      if (name === 'name') {
+        if ($('#name').val() == '') {
+          $('.name-error').show();
+          $('#name').focus();
+          return false;
+        } else {
+          $('.name-error').hide();
+        }
+      }
+      // 手机
+      if (name === 'tel') {
+        if ($('#tel').val() == '') {
+          $('.tel-error1').show();
+          $('.tel-error2').hide();
+          $('#tel').focus();
+          return false;
+        } else {
+          $('.tel-error1').hide();
+        }
+        if (
+          !$('#tel')
+            .val()
+            .match(
+              /^(((13[0-9]{1})|(14[0-9]{1})|(15[0-9]{1})|(16[0-9]{1})|(17[0-9]{1})|(18[0-9]{1})|(19[0-9]{1}))+\d{8})$/,
+            )
+        ) {
+          $('.tel-error2').show();
+          $('.tel-error1').hide();
+          $('#tel').focus();
+          return false;
+        } else {
+          $('.tel-error2').hide();
+        }
+      }
+      // -----------
+      // 邮箱
+      if (name === 'email') {
+        if ($('#email').val() == '') {
+          $('.email-error1').show();
+          $('.email-error2').hide();
+          $('#email').focus();
+          return false;
+        } else {
+          $('.email-error1').hide();
+        }
+        if (
+          !$('#email')
+            .val()
+            .match(/^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(\.[a-zA-Z0-9_-])+/)
+        ) {
+          $('.email-error2').show();
+          $('.email-error1').hide();
+          $('#email').focus();
+          return false;
+        } else {
+          $('.email-error2').hide();
+        }
+      }
+      // ------------
+      if (name === 'yuanwang') {
+        if ($('#txmessage').val() == '') {
+          $('.txmessage-error').show();
+          $('#txmessage').focus();
+          return false;
+        } else {
+          $('.txmessage-error').hide();
+        }
+      }
+    }
+  });
+</script>
